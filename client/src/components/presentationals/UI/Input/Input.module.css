@@ -39,3 +39,7 @@
 .ErrorShown {
     visibility: visible;
 }
+
+.Input:disabled {
+    background: #dddddd;
+}

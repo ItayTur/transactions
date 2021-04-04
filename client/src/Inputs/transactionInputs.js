@@ -8,7 +8,10 @@ const inputs = {
         validations: [
             getValidation(validations.IS_REQUIRED)
         ],
-        error: 'Trading party is required'
+        error: 'Trading party is required',
+        isDisabled: true,
+        isValid: true,
+        value: 'itay',
     }),
     counterparty: getInputObj({
         label: 'Counter Party',
