@@ -3,6 +3,11 @@
     box-shadow: 1px 2px 2px #ccc;
     background: none;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 7px;
+    background: limegreen;
+    color: white;
+    font-weight: 900;
 }
 
 .Button:active {

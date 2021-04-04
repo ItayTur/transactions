@@ -3,10 +3,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 50vh;
+    height: 70vh;
 }
 
 .TransactionsContainer {
     display: flex;
     justify-content: space-evenly;
+}
+
+@media (max-width: 580px) {
+    .TransactionsEditor {
+        height: 100vh;
+        justify-content: flex-start;
+    }
+
+    .TransactionsContainer {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 }
