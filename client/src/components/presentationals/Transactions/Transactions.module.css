@@ -1,0 +1,9 @@
+.Transactions {
+    width: 40%;
+}
+
+.Table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}

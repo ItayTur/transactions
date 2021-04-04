@@ -1,4 +1,3 @@
-const fs = require('fs');
 const transactions = require('../transactions.json');
 
 const getTransactionsByUserId = (userId) => {

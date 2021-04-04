@@ -1,0 +1,10 @@
+.Transaction,
+.Transaction td {
+    border: 1px solid rgb(91, 87, 87);
+    text-align: left;
+    padding: 8px;
+}
+
+.Transaction:nth-child(even) {
+    background-color: #dddddd;
+}

@@ -1,0 +1,14 @@
+.Button {
+    border: 1px solid #eee;
+    box-shadow: 1px 2px 2px #ccc;
+    background: none;
+    cursor: pointer;
+}
+
+.Button:active {
+    box-shadow: none;
+}
+
+.Button:focus {
+    outline: none;
+}

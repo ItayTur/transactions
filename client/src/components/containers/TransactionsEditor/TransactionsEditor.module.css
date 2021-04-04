@@ -1,3 +1,12 @@
 .TransactionsEditor {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 50vh;
+}
+
+.TransactionsContainer {
+    display: flex;
+    justify-content: space-evenly;
 }
