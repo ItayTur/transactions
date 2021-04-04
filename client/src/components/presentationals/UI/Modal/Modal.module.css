@@ -11,3 +11,12 @@
     box-sizing: border-box;
     transition: all 0.3s ease-out;
 }
+
+
+@media(max-width: 500px) {
+    .Modal {
+        width: 100%;
+        margin: 0 auto;
+        left: 0;
+    }
+}

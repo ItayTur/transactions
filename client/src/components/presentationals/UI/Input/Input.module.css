@@ -1,7 +1,6 @@
 .InputContainer {
     display: flex;
     flex-direction: column;
-    width: 200px;
 }
 
 @media (max-width: 818px) {
