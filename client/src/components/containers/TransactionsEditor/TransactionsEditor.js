@@ -7,6 +7,7 @@ import Transactions from '../../presentationals/Transactions/Transactions';
 import Controllers from '../../presentationals/Controllers/Controllers';
 import Modal from '../../presentationals/UI/Modal/Modal';
 import Form from '../../presentationals/UI/Form/Form';
+import csvExporter from './CsvExporter/CsvExporter';
 
 import classes from './TransactionsEditor.module.css';
 
@@ -44,7 +45,6 @@ const TransactionsEditor = () => {
 
     const onSubmitTransaction = async ({ formData: transaction }) => {
         try {
-            console.log(payingTransactions)
             const { data: newTransaction } = await transactionsAxios.post('/transactions', transaction);
             if (newTransaction.amount > 0) {
                 setPayingTransactions(prev => {
@@ -66,6 +66,25 @@ const TransactionsEditor = () => {
 
     }
 
+    const onCompress = () => {
+        const compressedTransactions = {};
+        const reducer = ({ counterparty, amount }) => {
+            if (compressedTransactions[counterparty]) {
+                compressedTransactions[counterparty] += amount;
+            } else {
+                compressedTransactions[counterparty] = amount;
+            }
+        }
+        payingTransactions.forEach(reducer);
+        receivingTransactions.forEach(reducer);
+        const compressedTransactionsToSet = [];
+        for (const counterparty in compressedTransactions) {
+            compressedTransactionsToSet.push({ counterparty, amount: compressedTransactions[counterparty] })
+        }
+         
+        csvExporter.generateCsv(compressedTransactionsToSet);
+    }
+
     return (
         <div className={classes.TransactionsEditor}>
             <Header />
@@ -73,7 +92,7 @@ const TransactionsEditor = () => {
                 <Transactions title="Paying" transactions={payingTransactions} />
                 <Transactions title="Receving" transactions={receivingTransactions} />
             </div>
-            <Controllers onAdd={openTransactionForm} />
+            <Controllers onAdd={openTransactionForm} onCompress={onCompress} />
             <Modal isOpen={isAddingTransaction} onClose={closeTransactionForm}>
                 {isAddingTransaction &&
                     <Form

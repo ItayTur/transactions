@@ -26,7 +26,7 @@ const formatTransction = (tradingParty, counterparty, data) => ({
 
 const addTransaction = (transaction) => {
     try {
-        const newTransaction =  transactionsRepository.addTransaction({ ...transaction, id: uuidv4() });
+        const newTransaction =  transactionsRepository.addTransaction({ ...transaction, amount: Number(transaction.amount), id: uuidv4() });
         return formatTransction(transaction.tradingParty, transaction.counterparty, newTransaction)
     } catch (error) {
         throw error;
