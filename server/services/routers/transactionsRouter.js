@@ -1,5 +1,6 @@
 const express = require('express');
 const transactionsManager = require('../../BL/managers/transactionsManager');
+const transactionValidation = require('../middleware/transactionValidation');
 
 const transactionsRouter = new express.Router();
 
@@ -14,7 +15,7 @@ transactionsRouter.get('/transactions', (req, res) => {
     }
 })
 
-transactionsRouter.post('/transactions', (req, res) => {
+transactionsRouter.post('/transactions', transactionValidation, (req, res) => {
     try {
         console.log('[transactionsRouter.js] post req:', req);
         const newTransaction = transactionsManager.addTransaction(req.body);
