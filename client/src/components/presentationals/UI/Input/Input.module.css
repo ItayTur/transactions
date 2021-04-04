@@ -1,0 +1,41 @@
+.InputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+@media (max-width: 818px) {
+    .InputContainer {
+        width: 100%;
+    }
+}
+
+.Label {
+    margin-bottom: 5px;
+}
+
+.Input {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+    background: white;
+    box-shadow: 2px 3px 3px #ccc;
+}
+
+.Input:focus {
+    outline: none;
+}
+
+.InputError {
+    border: 1px solid red;
+}
+
+.ErrorMessage {
+    color: red;
+    visibility: hidden;
+    margin: 0 0 0 15px;
+}
+
+.ErrorShown {
+    visibility: visible;
+}

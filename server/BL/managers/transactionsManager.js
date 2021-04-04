@@ -1,4 +1,5 @@
 const transactionsRepository = require('../../DAL/Repositories/transactionsRespository');
+const { v4: uuidv4 } = require('uuid');
 
 const getTransactionsByUserId = (userId) => {
     try {
@@ -23,6 +24,16 @@ const formatTransction = (tradingParty, counterparty, data) => ({
     amount: data.amount,
 });
 
+const addTransaction = (transaction) => {
+    try {
+        const newTransaction =  transactionsRepository.addTransaction({ ...transaction, id: uuidv4() });
+        return formatTransction(transaction.tradingParty, transaction.counterparty, newTransaction)
+    } catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     getTransactionsByUserId,
+    addTransaction,
 }

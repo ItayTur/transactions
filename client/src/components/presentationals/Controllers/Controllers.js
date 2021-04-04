@@ -2,11 +2,11 @@ import Button from '../UI/Button/Button';
 
 import classes from './Controllers.module.css';
 
-const Controllers = () => {
+const Controllers = ({ onAdd }) => {
     return (
         <div className={classes.Controllers}>
-            <Button text="Add New Transaction"/>
-            <Button text="Compress Transactions"/>
+            <Button text="Add New Transaction" onClick={onAdd} />
+            <Button text="Compress Transactions" />
         </div>
     );
 };
